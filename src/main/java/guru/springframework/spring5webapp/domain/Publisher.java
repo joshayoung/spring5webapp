@@ -11,16 +11,19 @@ public class Publisher {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
-    private String address;
+    private String addressLine1;
     private String city;
+    private String state;
     private String zip;
 
-    public Publisher(String address, String city, String zip) {
-        this.address = address;
+    public Publisher(String address, String city, String state, String zip) {
+        this.addressLine1 = address;
         this.city = city;
+        this.state = state;
         this.zip = zip;
     }
 
+    //JPA requires a no-args constructor:
     public Publisher() {
 
     }
@@ -33,12 +36,12 @@ public class Publisher {
         this.id = id;
     }
 
-    public String getAddress() {
-        return address;
+    public String getAddressLine1() {
+        return addressLine1;
     }
 
-    public void setAddress(String address) {
-        this.address = address;
+    public void setAddressLine1(String address) {
+        this.addressLine1 = address;
     }
 
     public String getCity() {
@@ -74,8 +77,9 @@ public class Publisher {
     public String toString() {
         return "Publisher{" +
                 "id=" + id +
-                ", address='" + address + '\'' +
+                ", address='" + addressLine1 + '\'' +
                 ", city='" + city + '\'' +
+                ", state='" + state + '\'' +
                 ", zip='" + zip + '\'' +
                 '}';
     }
