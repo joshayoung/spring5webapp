@@ -1,3 +1,8 @@
+# My Notes:
+### H2 Connection:
+* H2 Connection String: 'jdbc:h2:mem:testdb'
+* URL: `http://localhost:8080/h2-console`
+
 # Spring Framework 5: Beginner to Guru
 
 This repository is for an example application built in my [Spring Framework 5 - Beginner to Guru](https://www.udemy.com/testing-spring-boot-beginner-to-guru/?couponCode=GITHUB_REPO) online course
