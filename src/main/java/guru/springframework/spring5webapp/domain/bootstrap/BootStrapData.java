@@ -29,9 +29,13 @@ public class BootStrapData implements CommandLineRunner {
         eric.getBooks().add(ddd);
         ddd.getAuthors().add(eric);
 
+
         //Save to H2 Database:
         authorRepository.save(eric);
         bookRepository.save(ddd);
+
+        Publisher pub = new Publisher("123 Main", "Nowhere", "ZZ", "5555");
+        publisherRepository.save(pub);
 
         Author rod = new Author("Rod", "Johnson");
         Book bo = new Book("Testing", "13432");
@@ -39,13 +43,19 @@ public class BootStrapData implements CommandLineRunner {
         bo.getAuthors().add(rod);
         authorRepository.save(rod);
         bookRepository.save(bo);
+        bo.setPublisher(pub);
+        pub.getBooks().add(bo);
+        publisherRepository.save(pub);
 
         System.out.println("Started in Bootstrap");
         System.out.printf("Number of Books " + bookRepository.count());
 
-        Publisher pub = new Publisher("123 Main", "Nowhere", "ZZ", "5555");
-        publisherRepository.save(pub);
         System.out.printf("Number of Publishers " + publisherRepository.count());
+        ddd.setPublisher(pub);
+        pub.getBooks().add(ddd);
+        publisherRepository.save(pub);
+
+        System.out.println("Publisher Number of Books: " + pub.getBooks().size());
 
     }
 }
